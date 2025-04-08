@@ -43,7 +43,7 @@
 simpleRF <- function(formula, data, num_trees = 50, mtry = NULL, 
                      min_node_size = NULL, replace = TRUE, probability = FALSE, 
                      splitrule = NULL, unordered_factors = "ignore", 
-                     num_threads = 1) {
+                     num_threads = 1, sample_size=5) {
   
   model.data <- model.frame(formula, data)
   
@@ -150,7 +150,7 @@ simpleRF <- function(formula, data, num_trees = 50, mtry = NULL,
                                  data = Data$new(data = model.data), 
                                  formula = formula, unordered_factors = unordered_factors, 
                                  covariate_levels = covariate_levels,
-                                 timepoints = timepoints)
+                                 timepoints = timepoints,sample_size=sample_size)
   } else {
     stop("Unkown tree type.")
   }
